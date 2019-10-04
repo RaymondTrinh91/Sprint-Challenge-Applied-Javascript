@@ -20,21 +20,30 @@
 const carouselContain = document.querySelector(".carousel-container");
 carouselContain.appendChild(carouselCreator());
 
-let carouselIndex = 0;
+var carouselIndex = 0;
+let interval;
 showCarousel();
 
 function showCarousel(){
   const images = document.querySelectorAll(".slides");
-  console.log(images);
   for (var i = 0; i < images.length; i++){
     images[i].style.display ="none";
   }
   carouselIndex++;
   if (carouselIndex > images.length) {carouselIndex = 1}
   images[carouselIndex-1].style.display = "block";
-  setTimeout(showCarousel, 5000);
+  interval = setTimeout(showCarousel, 5000);
 }
-
+function slideChange(num) {
+  const images1 = document.querySelectorAll(".slides");
+  window.clearTimeout(interval);
+  carouselIndex = carouselIndex += num;
+  if (carouselIndex < 0){
+    carouselIndex = images1.length-1;
+  }
+  console.log(carouselIndex);
+  showCarousel();
+}
 
 function carouselCreator(){
   //Element
@@ -72,7 +81,12 @@ function carouselCreator(){
   image3.src = "./assets/carousel/trees.jpeg";
   image4.src = "./assets/carousel/turntable.jpeg";
   
-  //Slider?
+  leftBtn.addEventListener("click", ()=>{
+    slideChange(-2);
+  })
+  rightBtn.addEventListener("click", ()=>{
+    slideChange(0);
+  })
 
   return carousel;
 }
