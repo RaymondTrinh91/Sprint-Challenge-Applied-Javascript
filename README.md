@@ -29,15 +29,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
-
+The Document Object Model is an API that treats HTML as a tree where each node is an object.
 2. What is an event?
-
+Events are triggerable actions.
 3. What is an event listener?
-
+Event listener is a method that takes an Event and a callback. When the event is triggered the callback is initiated.
 4. Why would we convert a NodeList into an Array?
-
+If you need to use array methods other than forEach.
 5. What is a component?
-
+Components are code designed to be reused.
 ### Git Set up
 
 * [ ] Fork the project into your GitHub user account

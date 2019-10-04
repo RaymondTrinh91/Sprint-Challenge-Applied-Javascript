@@ -21,25 +21,28 @@
 axios
     .get("https://lambda-times-backend.herokuapp.com/articles")
     .then(response =>{
-        console.log(response);
-        response.data.articles.bootstrap.forEach(object =>{
-            cardContain.appendChild(cardCreator(object))
-            console.log(cardContain.appendChild(cardCreator(object)))
-        })
-        response.data.articles.javascript.forEach(object =>{
-            cardContain.appendChild(cardCreator(object))
-        })
-        response.data.articles.jquery.forEach(object =>{
-            cardContain.appendChild(cardCreator(object))
-        })
-        response.data.articles.node.forEach(object =>{
-            cardContain.appendChild(cardCreator(object))
-        })
-        response.data.articles.technology.forEach(object =>{
-            cardContain.appendChild(cardCreator(object))
-        })
+        // response.data.articles.bootstrap.forEach(object =>{
+        //     const bootstrap = cardContain.appendChild(cardCreator(object))
+        // })
+        // response.data.articles.javascript.forEach(object =>{
+        //     const javascript = cardContain.appendChild(cardCreator(object))
+        // })
+        // response.data.articles.jquery.forEach(object =>{
+        //     const jquery = cardContain.appendChild(cardCreator(object))
+        // })
+        // response.data.articles.node.forEach(object =>{
+        //     const node = cardContain.appendChild(cardCreator(object))
+        // })
+        // response.data.articles.technology.forEach(object =>{
+        //    const technology = cardContain.appendChild(cardCreator(object))
+        // })
+        for(let key in response.data.articles){
+            response.data.articles[key].forEach(object =>{
+                cardContain.appendChild(cardCreator(object));
+            })
+        }
     })
-   
+
 
 
 const cardContain = document.querySelector(".cards-container");
